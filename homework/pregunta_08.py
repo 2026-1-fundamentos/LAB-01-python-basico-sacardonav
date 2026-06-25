@@ -7,7 +7,30 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_08():
-    """
+
+    datos = {}
+
+    with open("files/input/data.csv", "r") as archivo:
+        for linea in archivo:
+            columnas = linea.split()
+
+            letra = columnas[0]
+            numero = int(columnas[1])
+
+            if numero not in datos:
+                datos[numero] = []
+
+            if letra not in datos[numero]:
+                datos[numero].append(letra)
+
+    resultado = []
+
+    for numero in sorted(datos):
+        resultado.append((numero, sorted(datos[numero])))
+
+    return resultado
+print(pregunta_08())
+"""
     Genere una lista de tuplas, donde el primer elemento de cada tupla
     contiene  el valor de la segunda columna; la segunda parte de la tupla
     es una lista con las letras (ordenadas y sin repetir letra) de la

@@ -7,7 +7,25 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_03():
-    """
+
+    sumas = {}
+
+    with open("files\input\data.csv", "r") as archivo:
+        for linea in archivo:
+            columnas = linea.split()
+
+            letra = columnas[0]
+            valor = int(columnas[1])
+
+            if letra in sumas:
+                sumas[letra] += valor
+            else:
+                sumas[letra] = valor
+
+    return sorted(sumas.items())
+print(pregunta_03())
+
+"""
     Retorne la suma de la columna 2 por cada letra de la primera columna como
     una lista de tuplas (letra, suma) ordendas alfabeticamente.
 

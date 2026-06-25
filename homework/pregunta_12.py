@@ -7,7 +7,29 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_12():
-    """
+
+    resultado = {}
+
+    with open("files/input/data.csv", "r") as archivo:
+        for linea in archivo:
+            columnas = linea.strip().split()
+
+            letra = columnas[0]
+            pares = columnas[4].split(",")
+
+            suma = 0
+            for par in pares:
+                valor = int(par.split(":")[1])
+                suma += valor
+
+            if letra in resultado:
+                resultado[letra] += suma
+            else:
+                resultado[letra] = suma
+
+    return dict(sorted(resultado.items()))
+print(pregunta_12())
+"""
     Genere un diccionario que contengan como clave la columna 1 y como valor
     la suma de los valores de la columna 5 sobre todo el archivo.
 
