@@ -11,7 +11,7 @@ def pregunta_02():
 
     conteo = {}
 
-    with open("files\input\data.csv", "r") as archivo:
+    with open("files/input/data.csv", "r") as archivo:
         for linea in archivo:
             letra = linea.split()[0]  # primera columna
 

@@ -10,7 +10,7 @@ def pregunta_03():
 
     sumas = {}
 
-    with open("files\input\data.csv", "r") as archivo:
+    with open("files/input/data.csv", "r") as archivo:
         for linea in archivo:
             columnas = linea.split()
 
